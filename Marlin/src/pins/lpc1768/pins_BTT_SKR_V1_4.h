@@ -341,6 +341,16 @@
 
     #define SD_DETECT_PIN                  P1_31
 
+  #elif ENABLED(ZONESTAR_LCD)
+  #define LCD_PINS_RS       P1_19
+  #define LCD_PINS_ENABLE   P1_18
+  #define LCD_PINS_D4       P1_20
+  #define LCD_PINS_D5       P1_21
+  #define LCD_PINS_D6       P1_22
+  #define LCD_PINS_D7       P1_23
+  #define ADC_KEYPAD_PIN    P1_30
+ 
+
   #else
 
     #define BTN_ENC                        P0_28  // (58) open-drain
@@ -413,7 +423,7 @@
 #endif // HAS_WIRED_LCD
 
 #if HAS_ADC_BUTTONS
- // #error "ADC BUTTONS do not work unmodifed on SKR 1.4, The ADC ports cannot take more than 3.3v."
+  //#error "ADC BUTTONS do not work unmodifed on SKR 1.4, The ADC ports cannot take more than 3.3v."
 #endif
 
 //

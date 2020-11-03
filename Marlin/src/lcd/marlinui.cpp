@@ -704,7 +704,7 @@ void MarlinUI::quick_feedback(const bool clear_buttons/*=true*/) {
     // Add a manual move to the queue?
     if (axis != (uint8_t)NO_AXIS && ELAPSED(millis(), start_time) && !planner.is_full()) {
 
-      const feedRate_t fr_mm_s = (uint8_t(axis) <= E_AXIS) ? manual_feedrate_mm_s[axis] : XY_PROBE_FEEDRATE_MM_S;
+      const feedRate_t fr_mm_s = (uint8_t(axis) <= E_AXIS) ? homing_feedrate_mm_s[axis] : XY_PROBE_FEEDRATE_MM_S;
 
       #if IS_KINEMATIC
 
