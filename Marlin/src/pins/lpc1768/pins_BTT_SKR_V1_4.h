@@ -388,6 +388,15 @@
         #define NEOPIXEL_PIN               P1_21
       #endif
 
+       #elif ENABLED(ZONESTAR_LCD)
+  #define LCD_PINS_RS       P1_19
+  #define LCD_PINS_ENABLE   P1_18
+  #define LCD_PINS_D4       P1_20
+  #define LCD_PINS_D5       P1_21
+  #define LCD_PINS_D6       P1_22
+  #define LCD_PINS_D7       P1_23
+  #define ADC_KEYPAD_PIN    P1_30
+
     #else                                         // !FYSETC_MINI_12864
 
       #if ENABLED(MKS_MINI_12864)
