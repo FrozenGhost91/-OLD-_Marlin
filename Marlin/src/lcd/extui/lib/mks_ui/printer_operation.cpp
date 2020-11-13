@@ -32,7 +32,6 @@
 #include "../../../../module/motion.h"
 #include "../../../../sd/cardreader.h"
 #include "../../../../inc/MarlinConfig.h"
-#include "../../../../MarlinCore.h"
 
 #if ENABLED(POWER_LOSS_RECOVERY)
   #include "../../../../feature/powerloss.h"
@@ -96,7 +95,7 @@ void printer_state_polling() {
         gcode.process_subcommands_now(public_buf_l);
         gcode.process_subcommands_now_P(PSTR("G90"));
       }
-      gcode.process_subcommands_now_P(M24_STR);
+      gcode.process_subcommands_now_P(PSTR("M24"));
       uiCfg.print_state = WORKING;
       start_print_time();
 

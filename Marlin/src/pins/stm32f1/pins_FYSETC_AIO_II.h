@@ -28,8 +28,6 @@
 #define BOARD_INFO_NAME   "FYSETC AIO II"
 #define BOARD_WEBSITE_URL "fysetc.com"
 
-#define BOARD_NO_NATIVE_USB
-
 #define DISABLE_JTAG
 
 #define pins_v2_20190128                          // new pins define

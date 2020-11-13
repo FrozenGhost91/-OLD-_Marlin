@@ -35,8 +35,6 @@
 
 #define BOARD_INFO_NAME "MKS Robin"
 
-#define BOARD_NO_NATIVE_USB
-
 //
 // Release PB4 (Y_ENABLE_PIN) from JTAG NRST role
 //

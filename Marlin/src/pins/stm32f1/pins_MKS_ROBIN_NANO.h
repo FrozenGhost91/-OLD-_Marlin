@@ -33,8 +33,6 @@
 
 #define BOARD_INFO_NAME "MKS Robin Nano"
 
-#define BOARD_NO_NATIVE_USB
-
 //
 // Release PB4 (Y_ENABLE_PIN) from JTAG NRST role
 //
@@ -193,9 +191,6 @@
   #define FSMC_DMA_DEV                      DMA2
   #define FSMC_DMA_CHANNEL               DMA_CH5
 
-  #define TFT_CS_PIN                 FSMC_CS_PIN
-  #define TFT_RS_PIN                 FSMC_RS_PIN
-
   #define TOUCH_BUTTONS_HW_SPI
   #define TOUCH_BUTTONS_HW_SPI_DEVICE          2
 
@@ -203,7 +198,7 @@
 #endif
 
 // XPT2046 Touch Screen calibration
-#if ANY(HAS_TFT_LVGL_UI_FSMC, TFT_COLOR_UI, TFT_CLASSIC_UI) && ENABLED(TFT_RES_480x320)
+#if EITHER(HAS_TFT_LVGL_UI_FSMC, TFT_480x320)
   #ifndef XPT2046_X_CALIBRATION
     #define XPT2046_X_CALIBRATION          17880
   #endif
@@ -216,7 +211,20 @@
   #ifndef XPT2046_Y_OFFSET
    #define XPT2046_Y_OFFSET                  349
   #endif
-#elif EITHER(TFT_COLOR_UI, TFT_CLASSIC_UI) && ENABLED(TFT_RES_320x240)
+#elif ENABLED(TFT_CLASSIC_UI)
+  #ifndef XPT2046_X_CALIBRATION
+    #define XPT2046_X_CALIBRATION          12149
+  #endif
+  #ifndef XPT2046_Y_CALIBRATION
+    #define XPT2046_Y_CALIBRATION          -8746
+  #endif
+  #ifndef XPT2046_X_OFFSET
+    #define XPT2046_X_OFFSET                 -35
+  #endif
+  #ifndef XPT2046_Y_OFFSET
+    #define XPT2046_Y_OFFSET                 256
+  #endif
+#elif ENABLED(TFT_320x240)
   #ifndef XPT2046_X_CALIBRATION
     #define XPT2046_X_CALIBRATION         -12246
   #endif

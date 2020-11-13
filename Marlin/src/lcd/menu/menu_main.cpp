@@ -133,10 +133,10 @@ void menu_main() {
       // *** IF THIS SECTION IS CHANGED, REPRODUCE BELOW ***
 
       //
-      // Run Auto Files
+      // Autostart
       //
       #if ENABLED(MENU_ADDAUTOSTART)
-        ACTION_ITEM(MSG_RUN_AUTO_FILES, card.beginautostart);
+        ACTION_ITEM(MSG_AUTOSTART, card.beginautostart);
       #endif
 
       if (card_detected) {
@@ -238,7 +238,7 @@ void menu_main() {
       // Autostart
       //
       #if ENABLED(MENU_ADDAUTOSTART)
-        ACTION_ITEM(MSG_RUN_AUTO_FILES, card.beginautostart);
+        ACTION_ITEM(MSG_AUTOSTART, card.beginautostart);
       #endif
 
       if (card_detected) {

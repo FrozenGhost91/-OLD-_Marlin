@@ -76,8 +76,8 @@ namespace Anycubic {
     #endif
 
     // Filament runout is handled by Marlin settings in Configuration.h
-    // opt_set    FIL_RUNOUT_STATE HIGH  // Pin state indicating that filament is NOT present.
-    // opt_enable FIL_RUNOUT_PULL
+    // set FIL_RUNOUT_STATE HIGH  // Pin state indicating that filament is NOT present.
+    // enable FIL_RUNOUT_PULLUP
 
     TFTSer.begin(115200);
 
