@@ -242,7 +242,7 @@
     #define BTN_ENC                        P1_18
 
     #define LCD_PINS_ENABLE                P1_21
-    #define LCD_PINS_D4                    P1_19
+    #define LCD_PINS_D4                    P0_28
 
   #elif ENABLED(CR10_STOCKDISPLAY)
     #define BTN_ENC                        P0_28  // (58) open-drain
