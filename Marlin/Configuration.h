@@ -35,7 +35,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */
-#define CONFIGURATION_H_VERSION 020007
+#define CONFIGURATION_H_VERSION 020008
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -91,7 +91,7 @@
 //#define SHOW_CUSTOM_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
-//#define CUSTOM_STATUS_SCREEN_IMAGE
+#define CUSTOM_STATUS_SCREEN_IMAGE
 
 // @section machine
 
@@ -107,7 +107,8 @@
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
- * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
+ * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
+ * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 //#define SERIAL_PORT_2 -1
 
@@ -127,7 +128,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_ANET_10
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -333,6 +334,9 @@
 
   //#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
   //#define PSU_POWERUP_DELAY 250   // (ms) Delay for the PSU to warm up to full power
+
+  //#define PSU_POWERUP_GCODE  "M355 S1"  // G-code to run after power-on (e.g., case light on)
+  //#define PSU_POWEROFF_GCODE "M355 S0"  // G-code to run before power-off (e.g., case light off)
 
   //#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
   #if ENABLED(AUTO_POWER_CONTROL)
@@ -678,15 +682,15 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-//#define X_DRIVER_TYPE  A4988
-//#define Y_DRIVER_TYPE  A4988
-//#define Z_DRIVER_TYPE  A4988
+#define X_DRIVER_TYPE  A4988
+#define Y_DRIVER_TYPE  A4988
+#define Z_DRIVER_TYPE  A4988
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-//#define E0_DRIVER_TYPE A4988
+#define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -1165,6 +1169,12 @@
 /**
  * Filament Runout Sensors
  * Mechanical or opto endstops are used to check for the presence of filament.
+ *
+ * IMPORTANT: Runout will only trigger if Marlin is aware that a print job is running.
+ * Marlin knows a print job is running when:
+ *  1. Running a print job from media started with M24.
+ *  2. The Print Job Timer has been started with M75.
+ *  3. The heaters were turned on and PRINTJOB_TIMER_AUTOSTART is enabled.
  *
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
@@ -2085,7 +2095,7 @@
 // A clone of the RepRapDiscount full graphics display but with
 // different pins/wiring (see pins_ANET_10.h).
 //
-//#define ANET_FULL_GRAPHICS_LCD
+#define ANET_FULL_GRAPHICS_LCD
 
 //
 // AZSMZ 12864 LCD with SD
@@ -2192,7 +2202,7 @@
 
 //
 // Third-party or vendor-customized controller interfaces.
-// Sources should be installed in 'src/lcd/extensible_ui'.
+// Sources should be installed in 'src/lcd/extui'.
 //
 //#define EXTENSIBLE_UI
 
@@ -2205,22 +2215,83 @@
 //=============================================================================
 
 /**
- * TFT Type - Select your Display type
- *
- * Available options are:
- *   MKS_TS35_V2_0,
- *   MKS_ROBIN_TFT24, MKS_ROBIN_TFT28, MKS_ROBIN_TFT32, MKS_ROBIN_TFT35,
- *   MKS_ROBIN_TFT43, MKS_ROBIN_TFT_V1_1R
- *   TFT_TRONXY_X5SA, ANYCUBIC_TFT35, LONGER_LK_TFT28
- *   TFT_GENERIC
- *
- * For TFT_GENERIC, you need to configure these 3 options:
- *   Driver:     TFT_DRIVER
- *               Current Drivers are: AUTO, ST7735, ST7789, ST7796, R61505, ILI9328, ILI9341, ILI9488
- *   Resolution: TFT_WIDTH and TFT_HEIGHT
- *   Interface:  TFT_INTERFACE_FSMC or TFT_INTERFACE_SPI
+ * Specific TFT Model Presets. Enable one of the following options
+ * or enable TFT_GENERIC and set sub-options.
  */
+
+//
+// 480x320, 3.5", SPI Display From MKS
+// Normally used in MKS Robin Nano V2
+//
+//#define MKS_TS35_V2_0
+
+//
+// 320x240, 2.4", FSMC Display From MKS
+// Normally used in MKS Robin Nano V1.2
+//
+//#define MKS_ROBIN_TFT24
+
+//
+// 320x240, 2.8", FSMC Display From MKS
+// Normally used in MKS Robin Nano V1.2
+//
+//#define MKS_ROBIN_TFT28
+
+//
+// 320x240, 3.2", FSMC Display From MKS
+// Normally used in MKS Robin Nano V1.2
+//
+//#define MKS_ROBIN_TFT32
+
+//
+// 480x320, 3.5", FSMC Display From MKS
+// Normally used in MKS Robin Nano V1.2
+//
+//#define MKS_ROBIN_TFT35
+
+//
+// 480x272, 4.3", FSMC Display From MKS
+//
+//#define MKS_ROBIN_TFT43
+
+//
+// 320x240, 3.2", FSMC Display From MKS
+// Normally used in MKS Robin
+//
+//#define MKS_ROBIN_TFT_V1_1R
+
+//
+// 480x320, 3.5", FSMC Stock Display from TronxXY
+//
+//#define TFT_TRONXY_X5SA
+
+//
+// 480x320, 3.5", FSMC Stock Display from AnyCubic
+//
+//#define ANYCUBIC_TFT35
+
+//
+// 320x240, 2.8", FSMC Stock Display from Longer/Alfawise
+//
+//#define LONGER_LK_TFT28
+
+//
+// Generic TFT with detailed options
+//
 //#define TFT_GENERIC
+#if ENABLED(TFT_GENERIC)
+  // :[ 'AUTO', 'ST7735', 'ST7789', 'ST7796', 'R61505', 'ILI9328', 'ILI9341', 'ILI9488' ]
+  #define TFT_DRIVER AUTO
+
+  // Interface. Enable one of the following options:
+  //#define TFT_INTERFACE_FSMC
+  //#define TFT_INTERFACE_SPI
+
+  // TFT Resolution. Enable one of the following options:
+  //#define TFT_RES_320x240
+  //#define TFT_RES_480x272
+  //#define TFT_RES_480x320
+#endif
 
 /**
  * TFT UI - User Interface Selection. Enable one of the following options:
