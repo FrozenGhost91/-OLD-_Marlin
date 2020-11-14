@@ -235,17 +235,17 @@
 #if HAS_WIRED_LCD
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
 
-    #define LCD_PINS_RS                    P1_22 //passt
+    #define LCD_PINS_RS                    P1_23 //passt
 
     #define BTN_EN1                        P1_20
     #define BTN_EN2                        P1_22
     #define BTN_ENC                        P0_18
 
-    #define LCD_PINS_ENABLE                P1_30 //passt
-    #define LCD_PINS_D4                    P0_28//laut reddit
+    #define LCD_PINS_ENABLE                P1_21 //passt
+    #define LCD_PINS_D4                    P0_19//laut reddit
 
     
-
+ 
    
 /*
     #define BTN_EN1                        P1_21
