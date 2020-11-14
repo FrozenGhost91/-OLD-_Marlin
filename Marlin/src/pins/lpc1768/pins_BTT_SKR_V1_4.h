@@ -244,7 +244,8 @@
 
     #define LCD_PINS_ENABLE                P1_21
     #define LCD_PINS_D4                    P1_19
-    #define BEEPER_PIN                   P1_30
+    #define BEEPER_PIN                     P1_30
+    #define back_btn            	         P0_28
 
 
 
