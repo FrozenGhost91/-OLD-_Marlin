@@ -230,21 +230,21 @@
  * (SD_SS) 0.16 | · --| 3.26 (BTN_EN1)              (LCD_RS) 1.19 | · · | 1.18 (LCD_EN)
  *   (SCK) 0.15 | · · | 0.17 (MISO)                (BTN_ENC) 0.28 | · · | 1.30 (BEEPER)
  *               -----                                             -----
- *               EXP2                                              EXP1
+ *               EXP2                                              EXP1                                                         
  */
 #if HAS_WIRED_LCD
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
     
     
-    #define LCD_PINS_RS                   P0_16// P1_23
+    #define LCD_PINS_RS                    P1_23
 
-    #define BTN_EN1                      P3_26 // P1_20
-    #define BTN_EN2                      P3_25//  P1_22
-    #define BTN_ENC                      P1_31//  P1_18
+    #define BTN_EN1                       P1_20
+    #define BTN_EN2                       P1_22
+    #define BTN_ENC                        P1_18
 
-    #define LCD_PINS_ENABLE              P0_15//  P1_21
-    #define LCD_PINS_D4                  P0_18//   P1_19
-    #define BEEPER_PIN                   P0_17 //P1_30
+    #define LCD_PINS_ENABLE                P1_21
+    #define LCD_PINS_D4                    P1_19
+    #define BEEPER_PIN                   P1_30
 
 
 
