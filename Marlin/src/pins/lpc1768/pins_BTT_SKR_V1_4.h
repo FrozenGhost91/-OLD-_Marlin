@@ -226,49 +226,26 @@
  *               _____                                             _____
  *           NC | · · | GND                                    5V | · · | GND
  *        RESET | · · | 1.31 (SD_DETECT)            (LCD_D7) 1.23 | · · | 1.22 (LCD_D6)
- *  (MOSI) 0.18 | · · | 3.25 (BTN_EN2)              (LCD_D5) 1.21 | · · | 1.20 (LCD_D4)
- * (SD_SS) 0.16 | · · | 3.26 (BTN_EN1)              (LCD_RS) 1.19 | · · | 1.18 (LCD_EN)
+ *  (MOSI) 0.18 | · --| 3.25 (BTN_EN2)              (LCD_D5) 1.21 | · · | 1.20 (LCD_D4)
+ * (SD_SS) 0.16 | · --| 3.26 (BTN_EN1)              (LCD_RS) 1.19 | · · | 1.18 (LCD_EN)
  *   (SCK) 0.15 | · · | 0.17 (MISO)                (BTN_ENC) 0.28 | · · | 1.30 (BEEPER)
  *               -----                                             -----
  *               EXP2                                              EXP1
  */
 #if HAS_WIRED_LCD
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
-
-    #define LCD_PINS_RS                    P1_23 //passt
-
-    #define BTN_EN1                        P1_20
-    #define BTN_EN2                        P1_22
-    #define BTN_ENC                        P0_18
-
-    #define LCD_PINS_ENABLE                P1_21 //passt
-    #define LCD_PINS_D4                    P0_19//laut reddit
-
     
- 
-   
-/*
-    #define BTN_EN1                        P1_21
-    #define BTN_EN2                        P1_23
-    #define BTN_ENC                        P1_19
+    
+    #define LCD_PINS_RS                   P0_16// P1_23
 
-     #define LCD_PINS_RS            P1_19//   P1_20   //  P1_30
-    #define LCD_PINS_ENABLE          P1_19//      P1_20
-    #define LCD_PINS_D4           P1_19// P1_20 // P_30      P1_22
-    */
+    #define BTN_EN1                      P3_26 // P1_20
+    #define BTN_EN2                      P3_25//  P1_22
+    #define BTN_ENC                      P1_31//  P1_18
 
-    //#define beeper P1_30
-    //P0_28 beeper
+    #define LCD_PINS_ENABLE              P0_15//  P1_21
+    #define LCD_PINS_D4                  P0_18//   P1_19
+    #define BEEPER_PIN                   P0_17 //P1_30
 
-//3 lcd pins 
-//dritter anschluss von links sichtweise hinten
-//1.23 vielleicht rs
-
-//vierter
-//1.21 vielleicht rw
-
-//fünfter
-//0_28 
 
 
   #elif ENABLED(CR10_STOCKDISPLAY)
