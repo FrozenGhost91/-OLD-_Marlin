@@ -234,7 +234,7 @@
  */
 #if HAS_WIRED_LCD
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
-/*
+
     #define LCD_PINS_RS                    P1_22 //passt
 
     #define BTN_EN1                        P1_20
@@ -244,17 +244,31 @@
     #define LCD_PINS_ENABLE                P1_30 //passt
     #define LCD_PINS_D4                    P0_28//laut reddit
 
+    
+
+   
+/*
+    #define BTN_EN1                        P1_21
+    #define BTN_EN2                        P1_23
+    #define BTN_ENC                        P1_19
+
+     #define LCD_PINS_RS            P1_19//   P1_20   //  P1_30
+    #define LCD_PINS_ENABLE          P1_19//      P1_20
+    #define LCD_PINS_D4           P1_19// P1_20 // P_30      P1_22
     */
 
-    #define LCD_PINS_RS                    P1_23 //passt
+    //#define beeper P1_30
+    //P0_28 beeper
 
-    #define BTN_EN1                        P1_20
-    #define BTN_EN2                        P1_22
-    #define BTN_ENC                        P0_18
+//3 lcd pins 
+//dritter anschluss von links sichtweise hinten
+//1.23 vielleicht rs
 
-    #define LCD_PINS_ENABLE                P1_21
-    #define LCD_PINS_D4                    P0_28
+//vierter
+//1.21 vielleicht rw
 
+//fünfter
+//0_28 
 
 
   #elif ENABLED(CR10_STOCKDISPLAY)
