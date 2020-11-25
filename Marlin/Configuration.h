@@ -751,7 +751,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 396.04, 396.04, 1624.36, 389.68 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 100 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1003,7 +1003,7 @@
 #define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED (130*200)
+#define XY_PROBE_SPEED (130*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
