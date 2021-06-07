@@ -198,6 +198,7 @@
 #define Z2_DIR_PIN                          PE3
 #define Z2_ENABLE_PIN                       PD4
 #ifndef Z2_CS_PIN
+
   #define Z2_CS_PIN                         PE1
 #endif
 
