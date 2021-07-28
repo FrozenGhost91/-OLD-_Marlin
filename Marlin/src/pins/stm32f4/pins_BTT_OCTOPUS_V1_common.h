@@ -48,11 +48,9 @@
 // Trinamic Stallguard pins
 //
 #define X_DIAG_PIN                          PG6   // X-STOP
-#define E1_DIAG_PIN                         PG9   // Y-STOP
-
+#define E1_DIAG_PIN                         PG9   // Y-STOP zweiter connector
 #define Y_DIAG_PIN                         PG10  // Y
 #define E2_DIAG_PIN                        PG11  // E2DET
-
 #define Z_DIAG_PIN                          PG12  // Z-STOP
 #define Z2_DIAG_PIN                         PG14  // Z2-STOP
 #define E0_DIAG_PIN                         PG13  // E0DET
@@ -81,7 +79,7 @@
     #define X_MIN_PIN                 X_DIAG_PIN  // X-STOP
   #endif
   #ifndef X_MAX_PIN
-    #define X_MAX_PIN                E0_DIAG_PIN  // E0DET
+   // #define X_MAX_PIN                E0_DIAG_PIN  // E0DET
   #endif
 #else
   #define X_STOP_PIN                  X_DIAG_PIN  // X-STOP
@@ -99,7 +97,7 @@
     #define Y_MIN_PIN                 Y_DIAG_PIN  // Y-STOP
   #endif
   #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                E1_DIAG_PIN  // E1DET
+   // #define Y_MAX_PIN                E1_DIAG_PIN  // E1DET
   #endif
 #else
   #define Y_STOP_PIN                  Y_DIAG_PIN  // Y-STOP
@@ -126,10 +124,10 @@
 //
 // Filament Runout Sensor
 //
-#define FIL_RUNOUT_PIN                      PG12  // E0DET
-#define FIL_RUNOUT2_PIN                     PG13  // E1DET
-#define FIL_RUNOUT3_PIN                     PG14  // E2DET
-#define FIL_RUNOUT4_PIN                     PG15  // E3DET
+//#define FIL_RUNOUT_PIN                      PG12  // E0DET
+//#define FIL_RUNOUT2_PIN                     PG13  // E1DET
+//#define FIL_RUNOUT3_PIN                     PG14  // E2DET
+//#define FIL_RUNOUT4_PIN                     PG15  // E3DET
 
 //
 // Power Supply Control
@@ -161,12 +159,22 @@
 #ifndef X_CS_PIN
   #define X_CS_PIN                          PC4
 #endif
-
+/*
 #define E1_STEP_PIN                          PG0   // MOTOR 1
 #define E1_DIR_PIN                           PG1
 #define E1_ENABLE_PIN                        PF15
 #ifndef E1_CS_PIN
   #define E1_CS_PIN                          PD11
+#endif
+
+*/
+
+
+#define X2_STEP_PIN                          PG0   // MOTOR 1
+#define X2_DIR_PIN                           PG1
+#define X2_ENABLE_PIN                        PF15
+#ifndef X2_CS_PIN
+  #define X2_CS_PIN                          PD11
 #endif
 
 #define Y_STEP_PIN                          PF11  // MOTOR 2
@@ -176,12 +184,20 @@
 
   #define Y_CS_PIN                          PC6
 #endif
-
+/*
 #define E2_STEP_PIN                         PG4   // MOTOR 3
 #define E2_DIR_PIN                          PC1
 #define E2_ENABLE_PIN                       PA0
 #ifndef E2_CS_PIN
   #define E2_CS_PIN                         PC7
+#endif
+*/
+
+#define Y2_STEP_PIN                         PG4   // MOTOR 3
+#define Y2_DIR_PIN                          PC1
+#define Y2_ENABLE_PIN                       PA0
+#ifndef Y2_CS_PIN
+  #define Y2_CS_PIN                         PC7
 #endif
 
 #define Z_STEP_PIN                         PF9   // MOTOR 4
