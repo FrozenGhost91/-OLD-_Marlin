@@ -2205,7 +2205,7 @@ define MIN_SOFTWARE_ENDSTOPS
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"
+#define Z_PROBE_END_SCRIPT "G91\nG1 Z30\nG90"
 
 // @section homing
 
@@ -2231,7 +2231,7 @@ define MIN_SOFTWARE_ENDSTOPS
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
@@ -2988,7 +2988,7 @@ define MIN_SOFTWARE_ENDSTOPS
 
 //
 // BigTreeTech Mini 12864 V1.0 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight.
-// https://github.com/bigtreetech/MINI-12864/tree/master/mini12864_v1.0
+// https://github.com/bigtreetech/MBOARD_BTT_OCTOPUS_V1_1 INI-12864/tree/master/mini12864_v1.0
 //
 //#define BTT_MINI_12864_V1
 
