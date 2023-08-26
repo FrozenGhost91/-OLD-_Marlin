@@ -48,12 +48,18 @@
 // Trinamic Stallguard pins
 //
 #define X_DIAG_PIN                          PG6   // X-STOP
-#define Y_DIAG_PIN                          PG9   // Y-STOP
-#define Z_DIAG_PIN                          PG10  // Z-STOP
-#define Z2_DIAG_PIN                         PG11  // Z2-STOP
-#define E0_DIAG_PIN                         PG12  // E0DET
-#define E1_DIAG_PIN                         PG13  // E1DET
-#define E2_DIAG_PIN                         PG14  // E2DET
+//#define Y_DIAG_PIN                          PG9   // Y-STOP
+#define Y_DIAG_PIN                          PG10  // Y-STOP
+//#define Z_DIAG_PIN                          PG10  // Z-STOP
+#define Z_DIAG_PIN                          PG12  // Z-STOP
+//#define Z2_DIAG_PIN                         PG11  // Z2-STOP
+#define Z2_DIAG_PIN                         PG14  // Z2-STOP
+//#define E0_DIAG_PIN                         PG12  // E0DET
+#define E0_DIAG_PIN                         PG13  // E0DET
+//#define E1_DIAG_PIN                         PG13  // E1DET
+#define E1_DIAG_PIN                         PG9   // E1DET
+//#define E2_DIAG_PIN                         PG14  // E2DET
+#define E2_DIAG_PIN                         PG11  // E2DET
 #define E3_DIAG_PIN                         PG15  // E3DET
 
 //
