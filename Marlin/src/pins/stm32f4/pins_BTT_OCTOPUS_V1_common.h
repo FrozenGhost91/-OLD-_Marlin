@@ -77,7 +77,7 @@
     #define X_MIN_PIN                 X_DIAG_PIN  // X-STOP
   #endif
   #ifndef X_MAX_PIN
-    #define X_MAX_PIN                E0_DIAG_PIN  // E0DET
+   // #define X_MAX_PIN                E0_DIAG_PIN  // E0DET
   #endif
 #else
   #define X_STOP_PIN                  X_DIAG_PIN  // X-STOP
@@ -95,7 +95,7 @@
     #define Y_MIN_PIN                 Y_DIAG_PIN  // Y-STOP
   #endif
   #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                E1_DIAG_PIN  // E1DET
+   // #define Y_MAX_PIN                E1_DIAG_PIN  // E1DET
   #endif
 #else
   #define Y_STOP_PIN                  Y_DIAG_PIN  // Y-STOP
