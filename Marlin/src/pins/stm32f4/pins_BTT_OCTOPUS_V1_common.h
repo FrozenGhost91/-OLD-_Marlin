@@ -345,23 +345,23 @@
   #define X_SERIAL_TX_PIN                   PC4
   #define X_SERIAL_RX_PIN        X_SERIAL_TX_PIN
 
-  #define Y_SERIAL_TX_PIN                   PD11
-  #define Y_SERIAL_RX_PIN        Y_SERIAL_TX_PIN
+  #define E1_SERIAL_TX_PIN                   PD11
+  #define E1_SERIAL_RX_PIN        Y_SERIAL_TX_PIN
 
-  #define Z_SERIAL_TX_PIN                   PC6
-  #define Z_SERIAL_RX_PIN        Z_SERIAL_TX_PIN
+  #define Y_SERIAL_TX_PIN                   PC6
+  #define Y_SERIAL_RX_PIN        Z_SERIAL_TX_PIN
 
-  #define Z2_SERIAL_TX_PIN                  PC7
-  #define Z2_SERIAL_RX_PIN      Z2_SERIAL_TX_PIN
+  #define E2_SERIAL_TX_PIN                  PC7
+  #define E2_SERIAL_RX_PIN      Z2_SERIAL_TX_PIN
 
-  #define E0_SERIAL_TX_PIN                  PF2
-  #define E0_SERIAL_RX_PIN      E0_SERIAL_TX_PIN
+  #define Z_SERIAL_TX_PIN                  PF2
+  #define Z_SERIAL_RX_PIN      E0_SERIAL_TX_PIN
 
-  #define E1_SERIAL_TX_PIN                  PE4
-  #define E1_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
+  #define E0_SERIAL_TX_PIN                  PE4
+  #define E0_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
 
-  #define E2_SERIAL_TX_PIN                  PE1
-  #define E2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
+  #define Z2_SERIAL_TX_PIN                  PE1
+  #define Z2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
 
   #define E3_SERIAL_TX_PIN                  PD3
   #define E3_SERIAL_RX_PIN      E3_SERIAL_TX_PIN
